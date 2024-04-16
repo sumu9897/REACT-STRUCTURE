@@ -24,6 +24,12 @@ const App = () => {
                 }
             </ol>
 
+            {
+                (()=>{
+                    return "Hello World !"
+                })()
+            }
+
         </div>
     );
 };
