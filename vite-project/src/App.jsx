@@ -7,9 +7,22 @@ const App = () => {
     // Auto Executed
 
     // Arrow function => Event , Onchange, Logical Function, API Call
+
+
+
+
+    // View // JSX // Output
+
+    let country = [ 'Bangladesh', 'India', 'Canada', 'America']
     return (
         <div>
-            <h1>Hello</h1>
+            <ol>
+                {
+                    country.map((item)=>{
+                       return  <li>{item}</li>
+                    })
+                }
+            </ol>
 
         </div>
     );
