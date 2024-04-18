@@ -14,12 +14,22 @@ const App = () => {
                 <li>Email:{loginData.email}</li>
                 <li>Password:{loginData.password}</li>
             </ul>
-            <input onChange={(e)=> {setLoginData(loginData=>({
-                ...loginData,'email':e.target.value
-            }))}} type="text" placeholder="email"/><br/>
+            {/*<input onChange={(e)=> {setLoginData(loginData=>({*/}
+            {/*    ...loginData,'email':e.target.value*/}
+            {/*}))}} type="text" placeholder="email"/><br/>*/}
+
+            <input onChange={(e) => {
+                setLoginData(loginData => ({
+                    ...loginData, 'email': e.target.value
+                }))
+            }} type="text" placeholder="email"/><br/>
 
 
-            <input onChange={()=> {}} type="text" placeholder="password"/>
+            <input onChange={(e) => {
+                setLoginData((loginData=>({
+                    ...loginData,'password':e.target.value
+                })))
+            }} type="text" placeholder="password"/>
         </div>
     );
 };
