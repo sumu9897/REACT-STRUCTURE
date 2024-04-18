@@ -3,32 +3,14 @@ import {useState} from "react";
 const App = () => {
 
 
-    //State
-    const [Number, SetNumber]=useState(0)
-    // const Number=11
+    let [email, SetEmail] = useState("Default");
 
-    //View
-    const Plus=()=>{
-
-        SetNumber(Number+1)
-    }
-    const Minus=()=>{
-        SetNumber(Number-1)
-    }
 
 
     return (
         <div>
-
-            {Number}
-            <button onClick={() => {
-                Plus()
-            }}>Plus
-            </button>
-            <button onClick={() => {
-                Minus()
-            }}>Minus
-            </button>
+            <h1>{email}</h1>
+            <input onChange={(e)=>{SetEmail(e.target.value)}} type="text" placeholder="email"/>
 
         </div>
     );
