@@ -10,7 +10,8 @@ const App = () => {
     return (
         <div>
             <h1>{email}</h1>
-            <input onChange={(e)=>{SetEmail(e.target.value)}} type="text" placeholder="email"/>
+            <label>Email: </label><br/>
+            <input onChange={(event)=>{SetEmail(event.target.value)}} type="text" placeholder="email"/>
 
         </div>
     );
