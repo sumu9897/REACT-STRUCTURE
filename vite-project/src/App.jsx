@@ -3,16 +3,23 @@ import {useState} from "react";
 const App = () => {
 
 
-    let [email, SetEmail] = useState("Default");
+
+    const [loginData,setLoginData] = useState({email:"", password:""});
 
 
 
     return (
         <div>
-            <h1>{email}</h1>
-            <label>Email: </label><br/>
-            <input onChange={(event)=>{SetEmail(event.target.value)}} type="text" placeholder="email"/>
+            <ul>
+                <li>Email:{loginData.email}</li>
+                <li>Password:{loginData.password}</li>
+            </ul>
+            <input onChange={(e)=> {setLoginData(loginData=>({
+                ...loginData,'email':e.target.value
+            }))}} type="text" placeholder="email"/><br/>
 
+
+            <input onChange={()=> {}} type="text" placeholder="password"/>
         </div>
     );
 };
