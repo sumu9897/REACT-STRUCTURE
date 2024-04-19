@@ -20,6 +20,10 @@ const ReadPage = () => {
 
     }
 
+    const onDeleteClick = async ()=>{
+        let res = await axios.get("https://crud.teamrabbil.com/api/v1/DeleteProduct/_id");
+    }
+
     return (
         <div className="container">
             <div className="row">
