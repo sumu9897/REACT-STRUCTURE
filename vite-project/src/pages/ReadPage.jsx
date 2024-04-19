@@ -43,6 +43,7 @@ const ReadPage = () => {
                                         <td>{item['Qty']}</td>
                                         <td>{item['TotalPrice']}</td>
                                         <td>{item['CreatedDate']}</td>
+                                        <button className="btn btn-danger">Delete</button>
 
                                     </tr>
 
