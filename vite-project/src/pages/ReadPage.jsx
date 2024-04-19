@@ -13,6 +13,7 @@ const ReadPage = () => {
 
     const CallReadAPI=async ()=>{
        let res = await axios.get("https://crud.teamrabbil.com/api/v1/ReadProduct");
+       console.log(res);
        let ProductList=res.data['data'];
        SetProductData(ProductList)
 
@@ -24,7 +25,7 @@ const ReadPage = () => {
                 <div className="col-12">
                     <h1>Product List</h1>
                     <hr/>
-                    {JSON.stringify(ProductData)}
+                    {/*{JSON.stringify(ProductData)}*/}
                     <table className="table table-striped">
                         <tbody>
                         {
