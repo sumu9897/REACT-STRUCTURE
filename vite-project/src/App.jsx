@@ -4,32 +4,19 @@ const App = () => {
 
 
 
-    const [loginData,setLoginData] = useState({email:"", password:""});
-
-
-
     return (
-        <div>
-            <ul>
-                <li>Email:{loginData.email}</li>
-                <li>Password:{loginData.password}</li>
-            </ul>
-            {/*<input onChange={(e)=> {setLoginData(loginData=>({*/}
-            {/*    ...loginData,'email':e.target.value*/}
-            {/*}))}} type="text" placeholder="email"/><br/>*/}
+        <div className="container">
+            <div className="row">
+                <div className="col-md-4">
+                    <ul>
+                        <li>Email:{loginData.email}</li>
+                        <li>Email:{loginData.pass}</li>
+                        <li>Email:{loginData.fname}</li>
+                        <li>Email:{loginData.lname}</li>
+                    </ul>
+                </div>
+            </div>
 
-            <input onChange={(e) => {
-                setLoginData(loginData => ({
-                    ...loginData, 'email': e.target.value
-                }))
-            }} type="text" placeholder="email"/><br/>
-
-
-            <input onChange={(e) => {
-                setLoginData((loginData=>({
-                    ...loginData,'password':e.target.value
-                })))
-            }} type="text" placeholder="password"/>
         </div>
     );
 };
