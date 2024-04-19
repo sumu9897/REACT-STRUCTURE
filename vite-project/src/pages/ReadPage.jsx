@@ -4,6 +4,7 @@ import axios from "axios";
 
 const ReadPage = () => {
     const [ProductData, SetProductData] = useState([]);
+    const [refresh, setRefresh] = useState(0);
 
     //useEffect
     useEffect(() => {
@@ -24,6 +25,7 @@ const ReadPage = () => {
             <div className="row">
                 <div className="col-12">
                     <h1>Product List</h1>
+                    <button onClick={()=>setRefresh(refresh+1)} className="btn btn-secondary">Refresh</button>
                     <hr/>
                     {/*{JSON.stringify(ProductData)}*/}
                     <table className="table table-striped">
