@@ -1,31 +1,48 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
+import toast from "react-hot-toast";
+import FullScreenLoader from "../loader/FullScreenLoader.jsx";
 
 
 const ReadPage = () => {
     const [ProductData, SetProductData] = useState([]);
     const [refresh, setRefresh] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     //useEffect
     useEffect(() => {
         CallReadAPI()
 
-    }, []);
+    }, [refresh]);
 
     const CallReadAPI=async ()=>{
        let res = await axios.get("https://crud.teamrabbil.com/api/v1/ReadProduct");
        console.log(res);
        let ProductList=res.data['data'];
        SetProductData(ProductList)
+        setLoading(false);
 
     }
 
     const onDeleteClick = async (id)=>{
+        setLoading(true);
         let res = await axios.get(`https://crud.teamrabbil.com/api/v1/DeleteProduct/${id}`);
         let deleteData=res.data['status'];
+        if(deleteData==="success"){
+            toast.success("Delete Successfully");
+            setRefresh(refresh+1)
+        }else{
+            setLoading(false)
+            toast.error("Delete Fail");
+        }
     }
 
     return (
+        <>
+            {
+                loading && <FullScreenLoader/>
+            }
+
         <div className="container">
             <div className="row">
                 <div className="col-12">
@@ -48,7 +65,7 @@ const ReadPage = () => {
                                         <td>{item['Qty']}</td>
                                         <td>{item['TotalPrice']}</td>
                                         <td>{item['CreatedDate']}</td>
-                                        <button onDeleteClick={()=>onDeleteClick(item['_id'])} className="btn btn-danger">Delete</button>
+                                        <button onClick={()=>onDeleteClick(item['_id'])} className="btn btn-danger">Delete</button>
 
                                     </tr>
 
@@ -61,6 +78,7 @@ const ReadPage = () => {
             </div>
 
         </div>
+        </>
     );
 };
 
