@@ -30,7 +30,7 @@ const ReadPage = () => {
         let deleteData=res.data['status'];
         if(deleteData==="success"){
             toast.success("Delete Successfully");
-            setRefresh(refresh+1)
+            CallReadAPI();
         }else{
             setLoading(false)
             toast.error("Delete Fail");
