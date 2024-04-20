@@ -20,8 +20,9 @@ const ReadPage = () => {
 
     }
 
-    const onDeleteClick = async ()=>{
-        let res = await axios.get("https://crud.teamrabbil.com/api/v1/DeleteProduct/_id");
+    const onDeleteClick = async (id)=>{
+        let res = await axios.get(`https://crud.teamrabbil.com/api/v1/DeleteProduct/${id}`);
+        let deleteData=res.data['status'];
     }
 
     return (
@@ -47,7 +48,7 @@ const ReadPage = () => {
                                         <td>{item['Qty']}</td>
                                         <td>{item['TotalPrice']}</td>
                                         <td>{item['CreatedDate']}</td>
-                                        <button className="btn btn-danger">Delete</button>
+                                        <button onDeleteClick={()=>onDeleteClick(item['_id'])} className="btn btn-danger">Delete</button>
 
                                     </tr>
 
